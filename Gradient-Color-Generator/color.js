@@ -1,5 +1,14 @@
 let button = document.querySelector(".btn");
 let text = document.querySelectorAll("h3");
+let span = document.querySelector("span");
+let input = document.querySelector("#angle");
+
+input.oninput = () => {
+  const x = input.value;
+  sliderColor = ` linear-gradient(90deg, #ff2289 ${x / 3.6}%, #fff ${ x / 3.6}%)`;
+  input.style.background = sliderColor;
+  span.innerText = input.value + "°";
+};
 
 backgroundColor1 = () => {
   hex = "0123456789abcdef";
@@ -31,23 +40,11 @@ backgroundColor2 = () => {
   return color2;
 };
 
-// angle = () => {
-//   return input;
-// };
-
 button.addEventListener("click", () => {
-  let input = document.querySelector("#angle");
-  if (input.value == "") {
-    input.value = 0;
-  } else if (input.value == undefined || input.value > 360 || input.value < 0) {
-    alert("please enter angle between 0° and 360°");
-  } else {
-    console.log(input.value);
-    document.body.style.background = `linear-gradient(${
-      input.value
-    }deg, ${backgroundColor1()},${backgroundColor2()})`;
-    text[0].innerText = `${input.value}°`;
-    text[1].innerText = color;
-    text[2].innerText = color2;
-  }
+  document.body.style.background = `linear-gradient(${
+    input.value
+  }deg, ${backgroundColor1()},${backgroundColor2()})`;
+  text[0].innerText = `${input.value}°`;
+  text[1].innerText = color;
+  text[2].innerText = color2;
 });
