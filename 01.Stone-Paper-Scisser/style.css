@@ -30,7 +30,6 @@ h2 {
     color: #fff;
     box-shadow: 5px 5px 10px rgb(0, 0, 0, .5),
         -5px -5px 10px rgb(43, 42, 42);
-    /* background: #1f1e1e; */
     padding: .2rem .5rem;
 }
 
@@ -113,8 +112,6 @@ h5 {
 .result {
     width: 60%;
     border-radius: 7px;
-    /* box-shadow: 5px 5px 10px rgb(0, 0, 0, .5),
-        -5px -5px 10px rgb(43, 42, 42); */
 }
 
 .win {
@@ -124,14 +121,16 @@ h5 {
         inset -5px -5px 10px rgb(32, 247, 4);
     background: rgb(32, 88, 25);
 }
-.lose {
 
+.lose {
+    
     box-shadow: 5px 5px 10px rgb(0, 0, 0, .5),
         -5px -5px 10px rgb(43, 42, 42), inset 5px 5px 10px rgb(247, 4, 4),
         inset -5px -5px 10px rgb(255, 0, 0);
     background: rgb(88, 25, 25);
 }
-.drow{
+
+.drow {
 
     box-shadow: 5px 5px 10px rgb(0, 0, 0, .5),
         -5px -5px 10px rgb(43, 42, 42), inset 5px 5px 10px rgb(227, 243, 3),

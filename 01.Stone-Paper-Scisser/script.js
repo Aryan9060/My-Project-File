@@ -7,10 +7,10 @@ let reset = document.querySelector(".btn")
 let clickSound = new Audio('Click.wav');
 let Music = new Audio('music')
 let winSound = new Audio('Result.mp3')
+let loseSound = new Audio('lose.mp3')
 let drowSound = new Audio('Drow.wav')
 
 
-console.log(document.getElementById('item1').innerText);
 
 playerScore = 0;
 computerScore = 0;
@@ -23,7 +23,8 @@ computer = () => {
 
 boxes.forEach((box) => {
     box.addEventListener('click', () => {
-        result.classList.remove('win','lose','drow');
+        result.classList.remove('win', 'lose', 'drow');
+        loseSound.paused
         Music.paused
         clickSound.play();
         Music.play();
@@ -82,15 +83,16 @@ showWinner = (win) => {
         scores[1].textContent = computerScore
         result.textContent = `Computer win`
         display[1].classList.remove('anime')
-        winSound.play();
+        loseSound.play();
     }
 }
 
-reset.addEventListener('click',()=>{
+reset.addEventListener('click', () => {
+    loseSound.paused
     clickSound.play();
-    result.classList.remove('win','lose','drow');
-    playerScore=0
-    computerScore=0
+    result.classList.remove('win', 'lose', 'drow');
+    playerScore = 0
+    computerScore = 0
     scores[0].textContent = playerScore
     scores[1].textContent = computerScore
 })
