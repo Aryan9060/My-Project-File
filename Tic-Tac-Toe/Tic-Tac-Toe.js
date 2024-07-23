@@ -1,7 +1,11 @@
 let boxes = document.querySelectorAll('.box');
 let turns = document.querySelectorAll(".turn");
 let result = document.querySelector('#result');
-let button = document.querySelector('#btn')
+let button = document.querySelector('#btn');
+
+let clickSound = new Audio('Click.wav');
+let winSound = new Audio('Result.mp3');
+let drowSound = new Audio('Drow.wav');
 
 let turn = 'X';
 let isGameOver = false
@@ -9,6 +13,7 @@ let isGameOver = false
 boxes.forEach(e => {
     e.innerHTML = ''
     e.addEventListener('click', () => {
+        clickSound.play();
         if (!isGameOver && e.innerHTML === "") {
             e.innerHTML = turn
             cheakWinner()
@@ -27,6 +32,7 @@ cheakWinner = () => {
         let v2 = boxes[win[i][2]].innerHTML;
 
         if (v0 != "" && v0 == v1 && v0 == v2) {
+            winSound.play();
             result.classList.remove('hide')
             result.textContent = `Team ${turn} is Winner`;
 
@@ -46,6 +52,7 @@ cheakDrow = () => {
             if (e.textContent === "") isDrow = false;
         })
         if (isDrow) {
+            drowSound.play();
             isGameOver = true;
             result.classList.remove('hide')
             result.textContent = `Match Drow`;
@@ -68,13 +75,17 @@ changeTurn = () => {
 }
 
 button.addEventListener('click', () => {
-    isGameOver = false;
-    turn = 'X';
-    result.className = ("hide")
-    turns[0].style.background = '#7cff1f';
-    turns[1].style.background = '#000';
-    boxes.forEach((e) => {
-        e.innerHTML = "";
-        e.style.background = '#000'
-    })
+    clickSound.play();
+    setInterval(()=>{
+        location.reload();
+    },500)
+    // isGameOver = false;
+    // turn = 'X';
+    // result.className = ("hide")
+    // turns[0].style.background = '#7cff1f';
+    // turns[1].style.background = '#000';
+    // boxes.forEach((e) => {
+    //     e.innerHTML = "";
+    //     e.style.background = '#000'
+    // })
 })

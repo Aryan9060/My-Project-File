@@ -88,11 +88,12 @@ showWinner = (win) => {
 }
 
 reset.addEventListener('click', () => {
-    loseSound.paused
-    clickSound.play();
-    result.classList.remove('win', 'lose', 'drow');
-    playerScore = 0
-    computerScore = 0
-    scores[0].textContent = playerScore
-    scores[1].textContent = computerScore
+    location.reload();
+    // loseSound.paused
+    // clickSound.play();
+    // result.classList.remove('win', 'lose', 'drow');
+    // playerScore = 0
+    // computerScore = 0
+    // scores[0].textContent = playerScore
+    // scores[1].textContent = computerScore
 })
