@@ -1,0 +1,164 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #0ff;
+    border-radius: 50%;
+}
+
+.container .icon {
+    position: relative;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container .icon .imgbox {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: .5s;
+    border: #fff 1px solid;
+    box-shadow: 0 0 0 4px #222,
+        0 0 0 6px #fff;
+    transform: rotate(calc(360deg/8*var(--i)));
+    transform-origin: 275px;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.container .icon .imgbox.active {
+    box-shadow: 0 0 0 4px #222,
+        0 0 0 8px #f00;
+}
+
+.container .icon .imgbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: rotate(calc(-360deg/8*var(--i)));
+    transition: .5s;
+    filter: grayscale(1);
+}
+
+.container .icon .imgbox.active img {
+    filter: grayscale(0);
+}
+
+.content {
+    position: absolute;
+    inset: 0;
+    /* overflow: hidden; */
+}
+
+.content::before {
+    position: absolute;
+    content: "";
+    inset: 40px;
+    border: 4px solid transparent;
+    border-left: 4px solid #f00;
+    border-right: 4px solid #f00;
+    border-radius: 50%;
+    animation: anime 5s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes anime {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.content::after {
+    position: absolute;
+    content: "";
+    inset: 70px;
+    border: 4px solid transparent;
+    border-top: 4px solid#0f0;
+    border-bottom: 4px solid #0f0;
+    border-radius: 50%;
+    animation: anime2 4s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes anime2 {
+    0% {
+        rotate: 360deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.imgbx{
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+
+}
+.textbox{
+    color: #fff;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+
+}
+.bx{
+    /* width: 20px;
+    height: 20px; */
+    font-size: 1.5rem;
+    color: rgb(240, 90, 30);
+    padding: .5rem;
+}
