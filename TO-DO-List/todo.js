@@ -2,7 +2,6 @@ const inputBox = document.querySelector('#input-box')
 const list = document.querySelector('#list-container')
 const button = document.querySelector('.btn')
 
-console.log(list);
 
 button.addEventListener('click', () => {
 
@@ -32,11 +31,10 @@ list.addEventListener('click', (e) => {
 
 let saveData = () => {
     localStorage.setItem('data', list.innerHTML);
-    console.log('saveData');
-    
 }
+
+
 let showTask = () => {
-    list.innerHTML=localStorage.getItem("data")
-    console.log('getData');
+    list.innerHTML= localStorage.getItem("data")
 }
 showTask()
