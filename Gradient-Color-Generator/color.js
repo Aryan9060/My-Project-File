@@ -5,7 +5,9 @@ let input = document.querySelector("#angle");
 
 input.oninput = () => {
   const x = input.value;
-  sliderColor = ` linear-gradient(90deg, #ff2289 ${x / 3.6}%, #fff ${ x / 3.6}%)`;
+  sliderColor = ` linear-gradient(90deg, #ff2289 ${x / 3.6}%, #fff ${
+    x / 3.6
+  }%)`;
   input.style.background = sliderColor;
   span.innerText = input.value + "°";
 };
@@ -40,6 +42,7 @@ backgroundColor2 = () => {
   return color2;
 };
 
+
 button.addEventListener("click", () => {
   document.body.style.background = `linear-gradient(${
     input.value
@@ -47,4 +50,5 @@ button.addEventListener("click", () => {
   text[0].innerText = `${input.value}°`;
   text[1].innerText = color;
   text[2].innerText = color2;
+  text[3].innerHTML = `linear-greadyent(${input.value} ,${color}, ${color2})`;  
 });
